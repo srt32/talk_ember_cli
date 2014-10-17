@@ -1,0 +1,11 @@
+Hey <%= @user.email %>!
+
+<p>Here's your summary for the week:<p>
+
+<ul>
+  <% @contacts.each do |contact| %>
+    <li><%= contact.name %> -- <%= contact.goal_percentage %></li>
+  <% end %>
+</ul>
+
+<a href="http://talk-staging.herokuapp.com">Sign in here</a>

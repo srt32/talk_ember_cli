@@ -1,0 +1,11 @@
+<section class='contact'>
+  <aside class='contact-name'><%= contact.name %></aside>
+  <article>
+    <span class='contact-goal-percentage'><%= contact.goal_percentage %></span>
+    <span class='contact-frequency'><%= contact.frequency %></span>
+    <span class='contact-last-conversation'>
+      <%= "#{contact.last_conversation_days_ago} days ago" %>
+    </span>
+    <%= render 'contacts/record_conversation.html.erb', contact: contact %>
+  </article>
+</section>

@@ -1,0 +1,23 @@
+<%= form_for @contact, method: :post, url: user_contacts_path(current_user) do |form| %>
+  <% if @contact.errors.any? %>
+    <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form.label :name, 'Name' %>
+  <%= form.text_field :name %>
+
+  <%= form.label :frequency, 'Frequency' %>
+  <%= select_tag("contact[frequency]",
+                 options_for_select([
+                                      ['Daily', 1],
+                                      ['Weekly', 7],
+                                      ['Monthly', 30],
+                                      ['Annually', 365]
+                                    ])) %>
+
+  <%= form.submit 'Add' %>
+<% end %>
