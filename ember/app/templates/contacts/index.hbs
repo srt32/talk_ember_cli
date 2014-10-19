@@ -1,3 +1,5 @@
 {{#each}}
-  {{link-to name 'contacts.show' this}}
+  {{~#link-to 'contacts.show' this}}
+    {{name}} ({{conversations.length}})
+  {{~/link-to}}
 {{/each}}
