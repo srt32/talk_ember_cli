@@ -5,6 +5,10 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   conversations: DS.hasMany('conversation'),
 
+  score: function() {
+    return 0;
+  },
+
   lastConversationDaysAgo: function() {
     var diff = Date.now() - Date.parse(this.get('lastConversationAt'));
     return new Date(diff).getDate();
