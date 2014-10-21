@@ -7,9 +7,9 @@ module('Integration - Contacts Page', {
   setup: function() {
     App = startApp();
     var contacts = [
-      { id: 1, name: 'Bugs Bunny', conversation_ids: [1,2] },
-      { id: 2, name: 'Wile E. Coyote', conversation_ids: [3] },
-      { id: 3, name: 'Yosemite Sam', conversation_ids: [4,5,6] }
+      { id: 1, name: 'Bugs Bunny', conversation_ids: [1,2], frequency: 7 },
+      { id: 2, name: 'Wile E. Coyote', conversation_ids: [3], frequest: 7 },
+      { id: 3, name: 'Yosemite Sam', conversation_ids: [4,5,6], frequency: 14}
     ];
 
     var conversations = [

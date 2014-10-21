@@ -1,6 +1,6 @@
 class ContactSerializer < ActiveModel::Serializer
   embed :ids, include: true
 
-  attributes :id, :name
+  attributes :id, :frequency, :name
   has_many :conversations
 end
