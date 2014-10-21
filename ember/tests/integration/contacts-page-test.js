@@ -81,14 +81,14 @@ test('Should list all contacts and number of presentations', function() {
 test('Should be able to navigate to a contact page', function() {
   visit('/contacts').then(function() {
     click('a:contains("Bugs Bunny")').then(function() {
-      equal(find('h4').text(), 'Bugs Bunny');
+      equal(find('.name').text(), 'Bugs Bunny');
     });
   });
 });
 
 test('Should be able visit a contact page', function() {
   visit('/contacts/1').then(function() {
-    equal(find('h4').text(), 'Bugs Bunny');
+    equal(find('.name').text(), 'Bugs Bunny');
   });
 });
 

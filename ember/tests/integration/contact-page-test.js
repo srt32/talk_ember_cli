@@ -3,6 +3,8 @@ import startApp from '../helpers/start-app';
 
 var App, server;
 
+var lastConversationAt = "2014-09-28 22:57:42";
+
 module('Integration - Contact Page', {
   setup: function() {
     App = startApp();
@@ -11,8 +13,8 @@ module('Integration - Contact Page', {
     ];
 
     var conversations = [
-      { id: 1, created_at: "2014-09-28 22:57:42", contact_id: 1 },
-      { id: 2, created_at: "2014-09-28 22:57:42", contact_id: 1 },
+      { id: 1, created_at: "2014-09-01 22:57:42", contact_id: 1 },
+      { id: 2, created_at: lastConversationAt, contact_id: 1 },
     ];
 
     server = new Pretender(function() {
@@ -40,4 +42,10 @@ test("Should show contact's frequency", function() {
   });
 });
 
+test("Should show contact's most recent conversation date", function() {
+  var daysAgo = new Date(Date.now() - Date.parse(lastConversationAt)).getDate();
 
+  visit('/contacts/1').then(function() {
+    equal(find('.last-conversation-days-ago').text(), "It's been " + daysAgo + " days");
+  });
+});

@@ -1,7 +1,7 @@
 <ul>
 {{#each}}
   {{~#link-to 'contacts.show' this}}
-    <li>{{name}} ({{conversations.length}})</li>
+    <li><span class="name">{{name}}</div> ({{conversations.length}})</li>
   {{~/link-to}}
 {{/each}}
 </ul>
