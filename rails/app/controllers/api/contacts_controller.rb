@@ -8,7 +8,10 @@ class Api::ContactsController < ApiController
   end
 
   def index
-    render json: Contact.includes(:conversations).all, array_serializer: ContactSerializer
+    render(
+      json: current_user.contacts.includes(:conversations).all,
+      array_serializer: ContactSerializer
+    )
   end
 
   def show

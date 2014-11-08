@@ -3,9 +3,11 @@
 {{link-to 'Home' 'application'}}
 {{link-to 'About' 'about'}}
 
-<hr>
-
-{{partial "new-contact"}}
+{{#if session.isAuthenticated}}
+  <a {{action 'invalidateSession' }}>Logout</a>
+{{else}}
+  <a {{action 'authenticateSession'}}>Login</a>
+{{/if}}
 
 <hr>
 

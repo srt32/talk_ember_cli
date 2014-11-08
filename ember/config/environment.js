@@ -19,6 +19,18 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:token'
+  };
+
+  ENV['simple-auth-token'] = {
+    serverTokenEndpoint: '/api/sessions',
+    identificationField: 'email',
+    tokenPropertyName: 'token',
+    authorizationPrefix: 'Token',
+    authorizationHeaderName: 'Authorization',
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
