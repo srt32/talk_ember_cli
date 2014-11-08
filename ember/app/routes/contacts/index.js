@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.find('contact');
+    this.store.find('contact');
+    return this.store.filter('contact', function(contact) {
+      return !contact.get('isNew');
+    });
   }
 });

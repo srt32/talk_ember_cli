@@ -2,8 +2,9 @@ Talk::Application.routes.draw do
 
   root to: "dashboards#show"
 
-  namespace :api do
-    resources :contacts
+  namespace :api, defaults: { format: :json } do
+    resources :contacts, only: [:create, :index, :show]
+    resources :conversations, only: [:create]
   end
 
   resources :users, only: [] do

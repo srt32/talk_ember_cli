@@ -112,6 +112,7 @@ GEM
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     rack (1.5.2)
+    rack-cors (0.2.9)
     rack-test (0.6.2)
       rack (>= 1.0)
     rack-timeout (0.0.4)
@@ -230,6 +231,7 @@ DEPENDENCIES
   newrelic_rpm (>= 3.7.3)
   pg
   pry-rails
+  rack-cors
   rack-timeout
   rails (>= 4.1.6)
   rails_12factor

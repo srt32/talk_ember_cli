@@ -1,0 +1,13 @@
+<div>
+  {{#unless name}}
+    Add a new contact:
+  {{/unless}}
+
+  {{input type="text" value=name}}
+  {{input type="text" value=frequency}}
+
+  {{#if name}}
+    Add {{name}} to your contacts?
+    <button {{action 'create'}}>Add</button>
+  {{/if}}
+</div>

@@ -1,5 +1,6 @@
 <h4>
   <span class="name">{{name}}</span> <span class="frequency">{{frequency}}</span>
+  <button {{action "recordConversation"}}>We spoke!</button>
 </h4>
 
 <div class="last-conversation-days-ago">It's been {{lastConversationDaysAgo}} days</div>
@@ -8,5 +9,7 @@
 <ul>
   {{#each conversations}}
   <li>{{created_at}}</li>
+  {{else}}
+    Y'all haven't recorded any conversations yet.
   {{/each}}
 </ul>

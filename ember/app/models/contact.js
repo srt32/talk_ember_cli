@@ -10,13 +10,23 @@ export default DS.Model.extend({
   },
 
   lastConversationDaysAgo: function() {
-    var diff = Date.now() - Date.parse(this.get('lastConversationAt'));
-    return new Date(diff).getDate();
+    var parsedLastAt = Date.parse(this.get('lastConversationAt'));
+
+    if (!parsedLastAt) {
+      return 0;
+    } else {
+      var diff = Date.now() - parsedLastAt;
+      return new Date(diff).getDate();
+    }
   }.property('lastConversationAt'),
 
   lastConversationAt: function() {
     var conversationLength = this.get('conversations.length');
     var lastConversation = this.get('conversations').sortBy('createdAt')[conversationLength - 1];
-    return lastConversation.get('created_at');
+    if (!lastConversation) {
+      return null;
+    } else {
+      return lastConversation.get('created_at');
+    }
   }.property('conversations')
 });
